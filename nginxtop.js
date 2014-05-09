@@ -131,7 +131,11 @@ function readLog(data, rl) {
 function parseLine(data, line) {
 
 	var fields = line.split(/ /);
-	var ip = fields[0];
+	var ip = fields[7];
+	
+	if (ip == '127.0.0.1') {
+	    return;
+	}
 	
 	if (!data[ip]) {
 		data[ip] = 0;
